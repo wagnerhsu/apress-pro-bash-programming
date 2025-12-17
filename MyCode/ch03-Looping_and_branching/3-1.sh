@@ -1,5 +1,4 @@
 
-## 3-1
 #!/bin/sh
 
 # 3-1: read a name from stdin or first arg; exit non-zero if empty
@@ -8,6 +7,7 @@
 if [ $# -ge 1 ]; then
     name=$1
 else
+    printf 'Enter your name: ' >&2
     if ! IFS= read -r name; then
         # 现在 $name 包含刚读到的一行（不含换行符），并且保留了前后空格
         printf '%s\n' "No name entered" >&2
